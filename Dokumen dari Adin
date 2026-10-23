@@ -1,0 +1,65 @@
+Buatkan aplikasi web interaktif menggunakan Next.js (App Router), Tailwind CSS, dan komponen dari shadcn/ui. Aplikasi ini adalah simulator tampilan smartphone iOS yang berisi beberapa aplikasi tiruan di dalamnya, dengan seluruh teks, data, dan narasi bersumber dari data yang akan saya masukkan.
+
+Berikut adalah spesifikasi teknis, struktur, dan fungsionalitas yang wajib dibuat:
+
+## 1. Desain Bingkai & Tata Letak Utama (iOS Frame)
+- **Container Utama:** Buat wrapper berukuran pas untuk tampilan perangkat seluler (lebar maksimum sekitar 390px-430px, tinggi sekitar 844px-900px di layar desktop, dengan sudut melengkung tajam khas iPhone (`rounded-[40px]`), border tipis elegan ala bezel titanium, dan shadow mendalam).
+- **Status Bar iOS di Bagian Atas:** Menampilkan indikator jam (real-time atau statis), ikon sinyal seluler, WiFi, dan persentase baterai.
+- **Home Indicator / Bar di Bagian Bawah:** Garis horizontal putih/hitam khas gestur iOS di bagian bawah layar.
+- **Navigasi Global:** 
+  - Tombol "Home" atau gestur untuk kembali ke layar utama (Springboard/Home Screen) yang berisi grid ikon aplikasi.
+  - Setiap aplikasi di dalam simulator memiliki tombol kembali (*back button*) atau header konsisten agar pengguna bisa keluar kembali ke Home Screen.
+
+## 2. Layar Utama (Home Screen / Springboard)
+- **Wallpaper:** Latar belakang gradasi estetis atau wallpaper abstrak bergaya iOS modern (mendukung mode gelap/terang).
+- **Grid Aplikasi (App Icons):** Tampilkan ikon berbentuk kotak melengkung (*squircle*) dengan logo dari Lucide Icons beserta label di bawahnya:
+  1. **Novel Reader** (Ikon Buku / FileText)
+  2. **Mobile Banking** (Ikon CreditCard / Wallet)
+  3. **Messenger** (Ikon MessageSquare / Send)
+  4. **Phone / Call** (Ikon Phone / PhoneCall)
+  5. **News Portal** (Ikon Newspaper / Globe)
+- **Dock Bawah:** Bar transparan di bagian paling bawah untuk aplikasi favorit.
+
+## 3. Detail Aplikasi di Dalam Simulator
+
+### A. Aplikasi 1: Novel Reader (Membaca Cerita)
+- **Tampilan:** Antarmuka bersih mirip e-reader atau aplikasi catatan.
+- **Fitur:**
+  - Menampilkan Judul Bab (Chapter Title) di bagian atas.
+  - Area teks panjang yang bisa di-scroll dengan mulus (*overflow-y-auto*).
+  - Tipografi rapi (lebar baca yang nyaman, jarak baris/line-height longgar, pilihan font sans-serif bersih).
+  - Indikator progres baca atau tombol navigasi Chapter Sebelumnya / Selanjutnya.
+
+### B. Aplikasi 2: Mobile Banking Palsu
+- **Tampilan:** Desain kartu perbankan modern (ala aplikasi Blu, BCA, atau Livin).
+- **Fitur:**
+  - Kartu saldo utama dengan tombol "Sembunyikan/Tampilkan Saldo" (ikon mata).
+  - Tombol aksi cepat: *Transfer*, *Top Up*, *QRis*, dan *History*.
+  - Riwayat Transaksi (*Transaction History*): Daftar list yang menampilkan logo transaksi, nama pengirim/penerima, tanggal/waktu, nominal (positif hijau / negatif merah), serta status berhasil.
+
+### C. Aplikasi 3: Messenger / Chat App
+- **Tampilan:** Daftar percakapan (*chat list*) di halaman utama aplikasi dengan avatar lingkaran, nama karakter, cuplikan pesan terakhir, dan timestamp.
+- **Fitur:**
+  - Saat salah satu chat diklik, buka ruang obrolan (*chat room*) spesifik.
+  - Gelembung pesan (*chat bubbles*) bergaya iOS (warna hijau untuk pesan keluar/user, abu-abu/biru muda untuk pesan masuk dari karakter lain).
+  - Menampilkan nama kontak di bagian header chat dengan status online/offline palsu.
+
+### D. Aplikasi 4: Phone App (Panggilan)
+- **Tampilan:** Tab navigasi bawah (Favorites, Recents, Contacts).
+- **Fitur:**
+  - Halaman **Recents (Riwayat Panggilan):** Daftar panggilan masuk, keluar, dan tak terjawab dengan ikon panah warna-warni dan durasi waktu.
+  - **Simulasi Incoming Call (Panggilan Masuk):** Sediakan tombol atau state khusus (atau modal interaktif) yang mensimulasikan layar panggilan masuk penuh (*incoming call screen*) dengan foto kontak, nama, tombol geser/klik untuk *Accept* (hijau) dan *Decline* (merah).
+
+### E. Aplikasi 5: News Portal (Berita Palsu)
+- **Tampilan:** Berita utama gaya portal berita profesional.
+- **Fitur:**
+  - Gambar utama (*featured image*) menggunakan komponen placeholder gambar yang relevan.
+  - Judul berita (*headline*) tebal dan menarik, penulis, tanggal publikasi, serta teks berita lengkap yang disusun dalam paragraf-paragraf rapi.
+
+## 4. Persyaratan Teknis & Interaksi
+- **State Management:** Gunakan React `useState` untuk mengatur aplikasi mana yang sedang aktif (Home Screen vs salah satu dari 5 aplikasi).
+- **Animasi & Transisi:** Transisi mulus saat membuka/menutup aplikasi (fade-in atau slide-up sederhana menggunakan Tailwind transition).
+- **Responsif & Tema:** Terapkan dukungan penuh untuk *Dark Mode* dan *Light Mode* yang elegan, dengan warna latar belakang sistem iOS yang konsisten.
+- **Sumber Data Placeholder:** Gunakan struktur data array/JSON di dalam kode untuk menampung teks novel, riwayat transaksi, pesan chat, riwayat panggilan, dan berita, yang nantinya akan saya ganti dengan data saya sendiri.
+
+Tulis kode lengkap, modular, bersih, dan langsung bisa dijalankan tanpa error.
